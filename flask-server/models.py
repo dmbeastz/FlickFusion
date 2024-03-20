@@ -19,7 +19,7 @@ class MovieInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     movie_id = db.Column(db.Integer, db.ForeignKey('movies.id'), nullable=False)
     description = db.Column(db.Text)
-    rating = db.Column(db.Float)  # Assuming rating is a floating point number
+    rating = db.Column(db.String(50))  # Changed to String for parental guide rating
     genre = db.Column(db.String(50))  # Assuming genre can be up to 50 characters
     runtime = db.Column(db.Integer)  # Assuming runtime is in minutes
     year = db.Column(db.Integer)  # Year of the movie
@@ -41,7 +41,7 @@ class SeriesInfo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     series_id = db.Column(db.Integer, db.ForeignKey('series.id'), nullable=False)
     description = db.Column(db.Text)
-    rating = db.Column(db.Float)  # Assuming rating is a floating point number
+    rating = db.Column(db.String(50))  # Changed to String for parental guide rating
     genre = db.Column(db.String(50))  # Assuming genre can be up to 50 characters
     seasons = db.Column(db.Integer)
     episodes = db.Column(db.Integer)

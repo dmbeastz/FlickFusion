@@ -1,5 +1,17 @@
 from flask_sqlalchemy import SQLAlchemy
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flickfusion.db' 
+
+
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+db.init_app(app)
+
+# Your models and routes go here
 db = SQLAlchemy()
 
 class Movies(db.Model):

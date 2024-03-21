@@ -1,9 +1,9 @@
 import random
 from flask import Flask
-from models import db, Movies, MovieInfo, Series, SeriesInfo, TVShows, TVShowsInfo, Trailer
+from models import db, Movies, MovieInfo, Series, SeriesInfo, Trailer
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flickfusion_database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flickfusion.db'
 db.init_app(app)
 
 with app.app_context():

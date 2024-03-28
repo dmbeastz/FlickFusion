@@ -1,0 +1,10 @@
+/movies: Retrieves all movies.
+/movies/<int:movie_id>: Retrieves a specific movie by its ID.
+/series: Retrieves all series.
+/series/<int:series_id>: Retrieves a specific series by its ID.
+/movieinfo: Retrieves all movie information.
+/movieinfo/<int:movie_id>: Retrieves movie information by movie ID.
+/seriesinfo: Retrieves all series information.
+/seriesinfo/<int:series_id>: Retrieves series information by series ID.
+/trailers: Retrieves all trailers.
+/trailers/<int:trailer_id>: Retrieves a specific trailer by its ID.

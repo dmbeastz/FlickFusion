@@ -8,6 +8,7 @@ db.init_app(app)
 
 def seed_data():
     with app.app_context():
+       
         print("Seeding Movies")
 
         movies_data = [
@@ -23,7 +24,6 @@ def seed_data():
             db.session.add(movie)
 
         db.session.commit()
-
         print("Movies seeded successfully")
 
         print("Seeding Movie_Info")
@@ -43,7 +43,6 @@ def seed_data():
                 db.session.add(movie_info)
 
         db.session.commit()
-
         print("Movie_Info seeded successfully")
 
         print("Seeding Series")
@@ -65,7 +64,6 @@ def seed_data():
                 db.session.add(series)
 
         db.session.commit()
-
         print("Series seeded successfully")
 
         print("Seeding Series_Info")
@@ -119,22 +117,21 @@ def seed_data():
             {"trailer_title": "The Crown", "video_url": "https://youtu.be/JWtnJjn6ng0?si=c5TQ-dmpCxHyvSWf"},
             {"trailer_title": "The Mandalorian", "video_url": "https://youtu.be/aOC8E8z_ifw?si=Uoah8-GJRrSAMe-5"},
             {"trailer_title": "Friends", "video_url": "https://youtu.be/LTpmw0Ac6Zs?si=1rvjpcii6RDNJUhu"}
-        ]
+    ] 
 
         for trailer_item in trailers_data:
             movie = Movies.query.filter_by(title=trailer_item['trailer_title']).first()
             if movie:
-                trailer = Trailer(video_url=trailer_item['video_url'], movie_id=movie.id)
+                trailer = Trailer(trailer_title=trailer_item['trailer_title'], video_url=trailer_item['video_url'], movie_id=movie.id)
                 db.session.add(trailer)
             else:
                 series = Series.query.filter_by(title=trailer_item['trailer_title']).first()
                 if series:
                     # Use series title as the trailer title
-                    trailer = Trailer(title=series.title, video_url=trailer_item['video_url'], series_id=series.id)
+                    trailer = Trailer(trailer_title=trailer_item['trailer_title'], video_url=trailer_item['video_url'], series_id=series.id)
                     db.session.add(trailer)
 
         db.session.commit()
-
         print("Trailers seeded successfully")
 
 if __name__ == "__main__":

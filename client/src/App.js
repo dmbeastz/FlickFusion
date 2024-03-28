@@ -4,10 +4,10 @@ function App() {
   const [flicks, setFlicks] = useState([]);
 
   useEffect(() => {
-    fetch("/flicks")
+    fetch("/movies") // Adjust the endpoint here based on your Flask routes
       .then((res) => res.json())
       .then((data) => {
-        setFlicks(data.flick);
+        setFlicks(data); // Set the fetched data directly
         console.log(data);
       })
       .catch((error) => {
@@ -18,7 +18,7 @@ function App() {
   return (
     <div>
       {flicks.map((flick, i) => (
-        <p key={i}>{flick}</p>
+        <p key={i}>{flick.title}</p> {/* Assuming flicks have a 'title' attribute */}
       ))}
     </div>
   );

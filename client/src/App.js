@@ -28,16 +28,28 @@ function App() {
 
   return (
     <div>
-      <h2>Movies</h2>
+      <div>
+        <h1>FlickFusion</h1>
+      </div>
+      <h2>Home</h2>
       <div>
         {movies.map((movie, i) => (
-          <p key={i}>{movie.title}</p>
+          <div key={i}>
+            <p>{movie.title}</p>
+            <p>Stars: {movie.stars}</p>
+            <p>Year: {movie.year}</p>
+            <img src={movie.poster} alt={`Poster for ${movie.title}`} />
+          </div>
         ))}
       </div>
-      <h2>Series</h2>
       <div>
         {series.map((serie, i) => (
-          <p key={i}>{serie.title}</p>
+          <div key={i}>
+            <p>{serie.title}</p>
+            <p>Stars: {serie.stars}</p>
+            <p>Year: {serie.year}</p>
+            <img src={serie.poster} alt={`Poster for ${serie.title}`} />
+          </div>
         ))}
       </div>
     </div>
